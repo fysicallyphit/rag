@@ -1,4 +1,5 @@
 from load_docs import open_files
+import json 
 
 def chunk_text(chunk_size, overlap):
     docs = open_files()
@@ -18,4 +19,8 @@ def chunk_text(chunk_size, overlap):
             chunks.append(chunk_dict)
             chunk_number +=1
     return chunks
+
+chunks = chunk_text(700, 150)
+with open("output/chunks.json", "w") as f:
+    json.dump(chunks, f)
 
